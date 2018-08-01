@@ -1,0 +1,10 @@
+# FOLDERS
+data/db/
+data/server/
+.idea/
+.vscode/
+
+# FILES
+*.log
+.DS_Store
+secrets.env

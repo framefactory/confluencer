@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  server:
+    image: confluence/server
+    container_name: confluence-server
+    build:
+      context: .
+      dockerfile: confluence.dockerfile
+    env_file:
+      - settings.env
+      - secrets.env
+    ports: #host:container
+      - "8090:8090"
+    volumes:
+      - ./data/server:/var/atlassian/application-data/confluence
+    links:
+      - db
+    depends_on:
+      - db
+
+  db:
+    image: "postgres:latest"
+    container_name: confluence-db
+    env_file:
+      - settings.env
+      - secrets.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
