@@ -2,7 +2,7 @@ version: '3'
 
 services:
   server:
-    image: "cptactionhank/atlassian-confluence:latest"
+    image: "atlassian/confluence-server:latest"
     container_name: confluence-server
     env_file:
       - settings.env
@@ -11,7 +11,7 @@ services:
       - "8090:8090"
       - "8091:8091"
     volumes:
-      - ./data/server:/var/atlassian/confluence
+      - ./data/server:/var/atlassian/application-data/confluence
       - ./data/logs:/opt/atlassian/confluence/logs
     links:
       - db

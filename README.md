@@ -2,30 +2,29 @@
 Docker Compose setup for Atlassian Confluence. This sets up two docker containers: one hosting Confluence with proper Oracle Java JDK, and one with a PostgreSQL database.
 
 * Based on: https://hub.docker.com/r/atlassian/confluence-server
-* Dockerfile repository: https://bitbucket.org/atlassian/docker-atlassian-confluence-server
+* Dockerfile repository: https://bitbucket.com/atlassian/docker-atlassian-confluence-server
+* Current version: 6.14.2
 
 ## Installation
 
 * Update `settings.env` and `secrets.env`
-* make sure `entrypoint.sh` (and also `startup.sh` and `shutdown.sh`) are executable
-* delete `data` folder if already there: `sudo rm -rf data`
+* make sure `startup.sh` and `shutdown.sh` are executable
+* delete all folders in `data`
+* Create log folder, change owner `cd data && mkdir logs && sudo chown daemon:daemon logs`
 
 ```bash
 # to create/start the Confluence and Postgres containers
 ./startup.sh
 
-# if docker-compose fails to set up volumes
-sudo chmod a+x ./entrypoint.sh
-sudo chown -R <current_user> data
-
 # to shut down and remove the Confluence and Postgres containers
 ./shutdown.sh
 ```
 
+### Setup
 * Navigate to localhost:8090
 * Select "Production" installation
 * Select external PostgreSQL database
-* Enter database connection string: `jdbc:postgresql://db:5432/confluence`
+* Enter database connection string: `jdbc:db://db:5432/confluence`
 * Enter database user name `confluence` and password
 
 #### Migrating from Confluence Cloud to Server
