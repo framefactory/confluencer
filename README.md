@@ -1,6 +1,9 @@
 # Atlassian Confluence
 Docker Compose setup for Atlassian Confluence. This sets up two docker containers: one hosting Confluence with proper Oracle Java JDK, and one with a PostgreSQL database.
 
+* Based on: https://hub.docker.com/r/atlassian/confluence-server
+* Dockerfile repository: https://bitbucket.org/atlassian/docker-atlassian-confluence-server
+
 ## Installation
 
 * Update `settings.env` and `secrets.env`

@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # Setup Catalina Opts
-: ${CATALINA_CONNECTOR_PROXYNAME:=}
-: ${CATALINA_CONNECTOR_PROXYPORT:=}
-: ${CATALINA_CONNECTOR_SCHEME:=http}
-: ${CATALINA_CONNECTOR_SECURE:=false}
+: ${CATALINA_CONNECTOR_PROXYNAME:=confluence.framelab.io}
+: ${CATALINA_CONNECTOR_PROXYPORT:=443}
+: ${CATALINA_CONNECTOR_SCHEME:=https}
+: ${CATALINA_CONNECTOR_SECURE:=true}
 
 : ${CATALINA_OPTS:=}
 
@@ -16,11 +16,6 @@ CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorSecure=${CATALINA_CONNECTOR_S
 
 export CATALINA_OPTS
 
-# add recovery password
-cat <<EOT >> $CONFLUENCE_INSTALL_DIR/bin/setenv.sh
-CATALINA_OPTS="\${CATALINA_OPTS} -Datlassian.recovery.password=confluence1234"
-export CATALINA_OPTS
-EOT
 
 # Start Confluence as the correct user
 if [ "${UID}" -eq 0 ]; then

@@ -2,18 +2,17 @@ version: '3'
 
 services:
   server:
-    image: confluence/server
+    image: "cptactionhank/atlassian-confluence:latest"
     container_name: confluence-server
-    build:
-      context: .
-      dockerfile: confluence.dockerfile
     env_file:
       - settings.env
       - secrets.env
     ports: #host:container
       - "8090:8090"
+      - "8091:8091"
     volumes:
-      - ./data/server:/var/atlassian/application-data/confluence
+      - ./data/server:/var/atlassian/confluence
+      - ./data/logs:/opt/atlassian/confluence/logs
     links:
       - db
     depends_on:

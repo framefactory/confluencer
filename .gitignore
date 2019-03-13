@@ -1,6 +1,6 @@
 # FOLDERS
-data/db/
-data/server/
+data/*/
+backup/
 .idea/
 .vscode/
 
