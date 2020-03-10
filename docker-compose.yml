@@ -5,8 +5,7 @@ services:
     image: "atlassian/confluence-server:latest"
     container_name: confluence-server
     env_file:
-      - settings.env
-      - secrets.env
+      - .env
     ports: #host:container
       - "8090:8090"
       - "8091:8091"
@@ -22,7 +21,6 @@ services:
     image: "postgres:latest"
     container_name: confluence-db
     env_file:
-      - settings.env
-      - secrets.env
+      - .env
     volumes:
       - ./data/db:/var/lib/postgresql/data

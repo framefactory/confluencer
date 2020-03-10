@@ -27,6 +27,9 @@ Docker Compose setup for Atlassian Confluence. This sets up two docker container
 * Enter database connection string: `jdbc:db://db:5432/confluence`
 * Enter database user name `confluence` and password
 
+### Draw.io Plugin
+* 
+
 #### Migrating from Confluence Cloud to Server
 
  * [Migrate from Cloud to Server](https://confluence.atlassian.com/confcloud/migrate-from-confluence-cloud-to-server-724765578.html)

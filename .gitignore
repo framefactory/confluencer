@@ -7,4 +7,4 @@ backup/
 # FILES
 *.log
 .DS_Store
-secrets.env
+.env
