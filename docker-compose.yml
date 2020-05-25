@@ -18,7 +18,7 @@ services:
       - db
 
   db:
-    image: "postgres:latest"
+    image: "postgres:12"
     container_name: confluence-db
     env_file:
       - .env

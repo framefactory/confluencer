@@ -3,7 +3,7 @@ Docker Compose setup for Atlassian Confluence. This sets up two docker container
 
 * Based on: https://hub.docker.com/r/atlassian/confluence-server
 * Dockerfile repository: https://bitbucket.com/atlassian/docker-atlassian-confluence-server
-* Current version: 6.14.2
+* Current version: 7.5.0 / works with PostgreSQL 12
 
 ## Installation
 
@@ -21,14 +21,19 @@ Docker Compose setup for Atlassian Confluence. This sets up two docker container
 ```
 
 ### Setup
+Database settings are now stored in .env and no manual setup should be necessary.
+
+#### Manual Setup
 * Navigate to localhost:8090
 * Select "Production" installation
 * Select external PostgreSQL database
-* Enter database connection string: `jdbc:db://db:5432/confluence`
+* Enter database connection string: `jdbc:postgresql://db:5432/confluence`
 * Enter database user name `confluence` and password
 
-### Draw.io Plugin
-* 
+### Installed Plugins
+* Draw.io (paid license)
+* Markdown macro for Confluence (free)
+* No email storm (free)
 
 #### Migrating from Confluence Cloud to Server
 
